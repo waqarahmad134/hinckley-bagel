@@ -1,0 +1,25 @@
+{
+  "background_color": "#ffffff",
+  "description": "",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Hinckley Bagel",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Hinckley Bagel",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.PNG",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "id": "Hinckley Bagel",
+  "categories": ["food"]
+}
