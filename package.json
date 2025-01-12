@@ -20,6 +20,8 @@
     "@tanstack/react-query": "^5.62.11",
     "@uiw/react-iframe": "^1.0.3",
     "axios": "^1.7.2",
+    "browserslist": "^4.24.4",
+    "caniuse-lite": "^1.0.30001692",
     "cross-fetch": "^4.0.0",
     "flowbite": "^2.4.1",
     "flowbite-react": "^0.10.1",
