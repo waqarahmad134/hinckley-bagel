@@ -59,13 +59,11 @@ export default function Header() {
             </div>
             <div className="text-black">
               <nav className="flex flex-col [&>a]:border-b-[1px] [&>nav>a]:border-white [&>a]:p-2">
-                <Link to={"/"} className="relative">
-                  Home
-                </Link>
                 {menu?.map((data, index) => (
                   <Link
+                    className="capitalize"
                     onClick={onClose}
-                    key={`menu-item-${index}`}
+                    key={`menu-sm-item-${index}`}
                     to={`${data?.url}`}
                   >
                     {data?.name}
@@ -84,16 +82,16 @@ export default function Header() {
             Hinckley Bagel
           </Link>
           <div className="header-menu">
-            <nav className="flex flex-wrap items-center uppercase md:[&>a]:p-1 md:[&>div>a]:p-1 lg:[&>a]:p-2 lg:[&>div>a]:p-2">
-              {menu?.map((data) => {
-                return (
-                  <div className="relative group">
-                    <Link to={`${data?.url}`} className="block text-lg">
-                      {data?.name}
-                    </Link>
-                  </div>
-                )
-              })}
+            <nav className="flex flex-wrap items-center uppercase md:[&>a]:py-1 md:[&>a]:px-4">
+              {menu?.map((data, index) => (
+                <Link
+                  key={`menu-lg-item-${index}`}
+                  to={`${data?.url}`}
+                  className="block text-lg"
+                >
+                  {data?.name}
+                </Link>
+              ))}
             </nav>
           </div>
           <div className="text-xl font-medium">
