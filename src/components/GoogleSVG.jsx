@@ -1,13 +1,13 @@
 import React from "react"
 
-export default function GoogleSVG() {
+export default function GoogleSVG({size}) {
   return (
     <>
       <svg
         viewBox="0 0 24 24"
         fill="currentColor"
-        width="48"
-        height="48"
+        width={size}
+        height={size}
         data-ux="Icon"
         className="x-el x-el-svg c2-1 c2-2 c2-q c2-r c2-u c2-3 c2-4 c2-5 c2-6 c2-7 c2-8"
       >

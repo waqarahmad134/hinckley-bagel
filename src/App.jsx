@@ -9,6 +9,10 @@ import Loader from "./components/Loader"
 const queryClient = new QueryClient()
 
 import Home from "./pages/Home"
+import Privacy from "./pages/Privacy"
+import Menu from "./pages/Menu"
+import Price from "./pages/Price"
+import Contact from "./pages/Contact"
 const About = lazy(() => import("./pages/About"))
 
 const CanonicalLinkUpdater = () => {
@@ -40,6 +44,48 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
+                  path="/menu"
+                  element={
+                    <Suspense
+                      fallback={
+                        <div className="loader-container">
+                          <Loader />
+                        </div>
+                      }
+                    >
+                      <Menu />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/prices"
+                  element={
+                    <Suspense
+                      fallback={
+                        <div className="loader-container">
+                          <Loader />
+                        </div>
+                      }
+                    >
+                      <Price />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/contact-us"
+                  element={
+                    <Suspense
+                      fallback={
+                        <div className="loader-container">
+                          <Loader />
+                        </div>
+                      }
+                    >
+                      <Contact />
+                    </Suspense>
+                  }
+                />
+                <Route
                   path="/about"
                   element={
                     <Suspense
@@ -50,6 +96,20 @@ function App() {
                       }
                     >
                       <About />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/privacy"
+                  element={
+                    <Suspense
+                      fallback={
+                        <div className="loader-container">
+                          <Loader />
+                        </div>
+                      }
+                    >
+                      <Privacy />
                     </Suspense>
                   }
                 />

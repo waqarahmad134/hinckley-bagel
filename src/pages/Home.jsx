@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
 import { FaStar } from "react-icons/fa6"
+import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 import {
   Autoplay,
@@ -90,7 +91,7 @@ export default function Home() {
             <div className="flex justify-center gap-4 text-white">
               <div className="flex items-center justify-center gap-4">
                 <div className="flex justify-center">
-                  <GoogleSVG />
+                  <GoogleSVG size={48}/>
                 </div>
                 <h2 className="text-2xl font-semibold">4.1</h2>
               </div>
@@ -108,36 +109,61 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="block py-10 w-4/5 m-auto">
+          <div className="block pb-10 w-4/5 m-auto">
             <Swiper
               slidesPerView={"3"}
               spaceBetween={30}
               loop={true}
               cssMode={true}
               navigation={true}
-              pagination={false}
+              pagination={true}
               mousewheel={true}
               keyboard={true}
+              
               // autoplay={{
               //   delay: 1500,
               //   disableOnInteraction: false,
               // }}
               modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
-              className="mySwiper"
+              className="mySwiper py-[80px] px-[100px]"
             >
               {moviesData?.data?.map((item, index) => (
                 <SwiperSlide key={`review-card-${index}`}>
-                  <Link className="block bg-white text-black border-0 p-1 sm:p-2 cursor-pointer">
-                    <div className="h-[100px] w-[100px] max-h-[100px] m-auto my-2 rounded-md">
-                      <img
-                        loading="lazy"
-                        src="https://lh3.googleusercontent.com/a/ACg8ocJH5EZ_QAYtAEdYm9XQrcmOwuH7SE-ZEYrSopP1wbn_xTk9bA=s120-c-rp-mo-br100"
-                        alt="Reviewer Img"
-                        className="w-full h-full rounded-md"
-                      />
+                  <Link className="block bg-white text-black border-0 p-1 sm:p-5 cursor-pointer">
+                    <div className="my-2 rounded-md">
+                      <div className="h-[100px] w-[100px] text-center m-auto">
+                        <img
+                          loading="lazy"
+                          src="https://lh3.googleusercontent.com/a/ACg8ocJH5EZ_QAYtAEdYm9XQrcmOwuH7SE-ZEYrSopP1wbn_xTk9bA=s120-c-rp-mo-br100"
+                          alt="Reviewer Img"
+                          className="object-cover w-full h-full rounded-md"
+                        />
+                      </div>
+
+                      <div className="flex justify-center gap-1 my-5">
+                        <FaStar color="yellow" />
+                        <FaStar color="yellow" />
+                        <FaStar color="yellow" />
+                        <FaStar color="yellow" />
+                        <FaStar color="yellow" />
+                      </div>
                       <h4>
-                        {`review-card-${index}`} | {index}
+                        "I was very disappointed today going to yamm with my
+                        daughter...
                       </h4>
+                      <p className="text-[#6f5243] flex items-center justify-center my-3">
+                        Read fill review{" "}
+                        <MdOutlineKeyboardArrowRight size={22} />
+                      </p>
+                      <div className="flex justify-center items-center gap-3">
+                        <GoogleSVG size={32} />
+                        <div className="flex "> 
+                          <p className="text-xs font-semibold text-[#595959]">
+                            Jenny Beattie
+                          </p>
+                          <p className="text-xs text-[#595959]">- 21/12/2024</p>
+                        </div>
+                      </div>
                     </div>
                   </Link>
                 </SwiperSlide>

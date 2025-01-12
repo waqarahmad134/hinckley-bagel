@@ -27,7 +27,12 @@ export default function Footer() {
     {
       id: 5,
       name: "contact us",
-      url: "/contact",
+      url: "/contact-us",
+    },
+    {
+      id: 6,
+      name: "privacy policy",
+      url: "/privacy",
     },
   ]
   return (
@@ -43,6 +48,7 @@ export default function Footer() {
                 Hinckley Bagel
               </a>
               <p className="text-sm">Fast Food Restaurant</p>
+              <p className="text-sm">Contact : 0141 611 3053</p>
               <p className="text-sm">
                 Address : Priestpopple, Hexham, Northumberland, NE46 1PH
               </p>
@@ -50,13 +56,15 @@ export default function Footer() {
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Opening hours</h4>
-              <p className="text-xs ">Monday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Tuesday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Wednesday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Thursday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Friday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Saturday : 1:00 PM to 11:00 PM</p>
-              <p className="text-xs ">Sunday : 1:00 PM to 11:00 PM</p>
+              <p className="text-sm">
+                <strong>Monday to Thursday</strong>: 11am - 10pm
+              </p>
+              <p className="text-sm">
+                <strong>Friday to Saturday</strong> : 11am - 11pm
+              </p>
+              <p className="text-sm">
+                <strong>Sunday</strong>: 10am - 9pm
+              </p>
             </div>
             <div>
               <h4 className=" text-lg font-semibold mb-4">Pages</h4>

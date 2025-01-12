@@ -39,7 +39,7 @@ export default function Header() {
     {
       id: 5,
       name: "contact",
-      url: "/contact",
+      url: "/contact-us",
     },
   ]
 
@@ -76,7 +76,7 @@ export default function Header() {
       </Drawer>
       <ScrollToTopButton />
 
-      <div className="fixed top-0 z-[50] text-black w-full bg-white bg-opacity-90 max-w-screen-2xl m-auto">
+      <div className="fixed top-0 border-b-2 z-[50] text-black w-full bg-white bg-opacity-90 max-w-screen-2xl m-auto">
         <div className="flex justify-between items-center gap-2 py-4 px-10 m-auto">
           <Link className="text-2xl text-[#6f5243] font-semibold" to={"/"}>
             Hinckley Bagel
