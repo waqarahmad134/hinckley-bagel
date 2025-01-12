@@ -1,13 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import DefaultLayout from "../Layout/DefaultLayout"
-import { BASE_URL, imgURL } from "../utilities/URL"
-import axios from "axios"
-import { MdKeyboardArrowRight } from "react-icons/md"
-import { Link, useNavigate } from "react-router-dom"
+import { BASE_URL } from "../utilities/URL"
+import { Link } from "react-router-dom"
 import Loader from "../components/Loader"
 import { useQuery } from "@tanstack/react-query"
 import { Swiper, SwiperSlide } from "swiper/react"
-
 import "swiper/css"
 import "swiper/css/pagination"
 
@@ -33,8 +30,6 @@ const fetchMovies = async (page) => {
 }
 
 export default function Home() {
-  const navigate = useNavigate()
-  const [currentPage, setCurrentPage] = useState(1)
   const {
     data: moviesData,
     isLoading,
@@ -43,18 +38,14 @@ export default function Home() {
     error,
     isFetching,
   } = useQuery({
-    queryKey: ["movies", currentPage],
-    queryFn: () => fetchMovies(currentPage),
+    queryKey: ["movies"],
+    queryFn: () => fetchMovies(),
     staleTime: 30 * 60 * 1000,
     cacheTime: 60 * 60 * 1000,
     keepPreviousData: true,
     refetchOnWindowFocus: false,
     refetchOnMount: false,
   })
-
-  const resetPage = () => setCurrentPage(1)
-
-  const coverData = ""
 
   if (isLoading) {
     return (
@@ -73,7 +64,7 @@ export default function Home() {
   }
 
   return (
-    <DefaultLayout onLogoClick={resetPage} homepage={true}>
+    <DefaultLayout>
       <main className="relative">
         <div className="relative h-[400px] waqar">
           <div
@@ -119,8 +110,8 @@ export default function Home() {
               modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
               className="mySwiper"
             >
-              {moviesData?.data?.map((item) => (
-                <div key={item?.id}>
+              {moviesData?.data?.map((item, index) => (
+                <div key={`review-card-${index}`}>
                   <SwiperSlide>
                     <Link className="block bg-white text-black border-0 p-1 sm:p-2 cursor-pointer">
                       <div className="h-[100px] w-[100px] max-h-[100px] m-auto my-2 rounded-md">

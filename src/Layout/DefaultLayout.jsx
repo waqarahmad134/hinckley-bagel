@@ -1,26 +1,22 @@
-import React, { useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
-import { useDataContext } from "../context/DataContext";
+import React, { useEffect } from "react"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import { useLocation } from "react-router-dom"
 
-const DefaultLayout = React.memo(({ children , onLogoClick , homepage}) => {
-  const location = useLocation();
-  const { categories } = useDataContext();
+const DefaultLayout = React.memo(({ children }) => {
+  const location = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location?.pathname]);
+    window.scrollTo(0, 0)
+  }, [location?.pathname])
 
   return (
-    <div className="">
-      <Header categories={categories} onLogoClick={onLogoClick} homepage={homepage}  />
-      <div className="relative top-0">
-        {children}
-      </div>
-      <Footer categories={categories} />
-    </div>
-  );
-});
+    <>
+      <Header />
+      <div className="relative top-0">{children}</div>
+      <Footer />
+    </>
+  )
+})
 
-export default DefaultLayout;
+export default DefaultLayout

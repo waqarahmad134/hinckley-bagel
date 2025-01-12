@@ -1,109 +1,45 @@
-import { useDisclosure } from "@chakra-ui/react"
-import React, { useEffect, useRef, useState } from "react"
-import { IoIosSearch, IoMdMenu } from "react-icons/io"
-import { Link, useNavigate } from "react-router-dom"
-
+import React from "react"
+import { Link } from "react-router-dom"
+import { IoMdMenu } from "react-icons/io"
+import { IoClose } from "react-icons/io5"
 import {
   Drawer,
   DrawerBody,
   DrawerOverlay,
   DrawerContent,
 } from "@chakra-ui/react"
-import { IoClose } from "react-icons/io5"
-import axios from "axios"
-import { imgURL, BASE_URL } from "../utilities/URL"
+import { useDisclosure } from "@chakra-ui/react"
 import ScrollToTopButton from "./ScrollToTopButton"
 
-export default function Header({ categories, onLogoClick, homepage }) {
+export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
-  const [searchTerm, setSearchTerm] = useState("")
-  const [suggestData, setSuggestData] = useState(null)
-  const navigate = useNavigate()
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef = useRef(null)
-  const inputRef = useRef(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target) &&
-        !inputRef.current.contains(event.target)
-      ) {
-        setIsDropdownOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
-  let debounceTimeout
-  const handleSuggestion = async (e) => {
-    const searchTerm = e.target.value
-    setIsDropdownOpen(true)
-    setSearchTerm(searchTerm)
-    clearTimeout(debounceTimeout)
-    debounceTimeout = setTimeout(async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}suggestions/${searchTerm}`)
-        setSuggestData(response?.data)
-      } catch (error) {
-        console.error("Error fetching movie suggestions:", error)
-      }
-    }, 500)
-  }
-
-  const handleSuggestionFunc = async (e, id) => {
-    e.preventDefault()
-    setSuggestData([])
-    navigate(`/movie/${id}`)
-    setIsDropdownOpen(false)
-  }
-
-  const handleSearch = async (e) => {
-    e.preventDefault()
-    try {
-      const response = await axios.get(`${BASE_URL}search`, {
-        params: {
-          title: searchTerm,
-        },
-      })
-      const results = response.data.data
-      localStorage.setItem("searchResults", JSON.stringify(results))
-
-      const event = new Event("storageChange")
-      window.dispatchEvent(event)
-      navigate("/search")
-    } catch (error) {
-      console.error("Error searching movies:", error)
-    }
-  }
 
   let menu = [
     {
       id: 1,
       name: "home",
+      url: "/",
     },
     {
       id: 2,
       name: "prices",
+      url: "/prices",
     },
     {
       id: 3,
       name: "menu",
+      url: "/menu",
     },
     {
       id: 4,
-      name: "about",
+      name: "about us",
+      url: "/about",
     },
     {
       id: 5,
       name: "contact",
+      url: "/contact",
     },
   ]
 
@@ -126,8 +62,12 @@ export default function Header({ categories, onLogoClick, homepage }) {
                 <Link to={"/"} className="relative">
                   Home
                 </Link>
-                {menu?.map((data) => (
-                  <Link onClick={onClose} key={data?.id} to={`/${data?.name}`}>
+                {menu?.map((data, index) => (
+                  <Link
+                    onClick={onClose}
+                    key={`menu-item-${index}`}
+                    to={`${data?.url}`}
+                  >
                     {data?.name}
                   </Link>
                 ))}
@@ -147,8 +87,8 @@ export default function Header({ categories, onLogoClick, homepage }) {
             <nav className="flex flex-wrap items-center uppercase md:[&>a]:p-1 md:[&>div>a]:p-1 lg:[&>a]:p-2 lg:[&>div>a]:p-2">
               {menu?.map((data) => {
                 return (
-                  <div key={data.id} className="relative group">
-                    <Link to={`/${data?.name}`} className="block text-lg">
+                  <div className="relative group">
+                    <Link to={`${data?.url}`} className="block text-lg">
                       {data?.name}
                     </Link>
                   </div>

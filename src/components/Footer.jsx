@@ -7,22 +7,27 @@ export default function Footer() {
     {
       id: 1,
       name: "home",
+      url: "/",
     },
     {
       id: 2,
       name: "prices",
+      url: "/prices",
     },
     {
       id: 3,
       name: "menu",
+      url: "/menu",
     },
     {
       id: 4,
-      name: "about",
+      name: "about us",
+      url: "/about",
     },
     {
       id: 5,
-      name: "contact",
+      name: "contact us",
+      url: "/contact",
     },
   ]
   return (
@@ -44,7 +49,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className=" text-lg font-semibold mb-4">Opening hours</h4>
+              <h4 className="text-lg font-semibold mb-4">Opening hours</h4>
               <p className="text-xs ">Monday : 1:00 PM to 11:00 PM</p>
               <p className="text-xs ">Tuesday : 1:00 PM to 11:00 PM</p>
               <p className="text-xs ">Wednesday : 1:00 PM to 11:00 PM</p>
@@ -56,17 +61,13 @@ export default function Footer() {
             <div>
               <h4 className=" text-lg font-semibold mb-4">Pages</h4>
               <div className="grid grid-cols-2">
-                {menu?.map((data) => (
+                {menu?.map((data, index) => (
                   <Link
-                    className="capitalize  block text-sm"
-                    key={data?.id}
-                    to={`/${data?.name}`}
+                    className="capitalize block text-sm"
+                    key={`footer-item-${index}`}
+                    to={`${data?.url}`}
                   >
-                    {data?.name == "about"
-                      ? "about us"
-                      : data?.name == "contact"
-                      ? "contact us"
-                      : data?.name}
+                    {data?.name}
                   </Link>
                 ))}
               </div>
