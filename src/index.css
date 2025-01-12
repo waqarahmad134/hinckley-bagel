@@ -93,6 +93,7 @@ html {
   background-position: center;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .swiper-button-next {
   height: 30px !important;
@@ -117,6 +118,7 @@ html {
   background-position: center;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .about-us h2{

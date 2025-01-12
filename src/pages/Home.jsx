@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
 import { FaStar } from "react-icons/fa6"
+import { FaFacebook } from "react-icons/fa6"
 import { MdOutlineKeyboardArrowRight } from "react-icons/md"
 
 import {
@@ -85,13 +86,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="py-10 bg-[url('https://img1.wsimg.com/isteam/ip/dcaf0790-2e31-40ed-a635-4e61984ff6cd/_DSC9559.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1535,m')] ">
-          <div className="text-center">
+        {/* Second Section  */}
+        <div className="py-10 bg-[url('https://img1.wsimg.com/isteam/ip/dcaf0790-2e31-40ed-a635-4e61984ff6cd/_DSC9559.jpg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1535,m')]  relative z-10 before:absolute before:h-full before:w-full before:content-[''] before:bg-black before:bg-opacity-40 before:top-0 before:z-0">
+          <div className="text-center relative z-20">
             <h2 className="text-white text-3xl font-semibold mb-12">Reviews</h2>
             <div className="flex justify-center gap-4 text-white">
               <div className="flex items-center justify-center gap-4">
                 <div className="flex justify-center">
-                  <GoogleSVG size={48}/>
+                  <GoogleSVG size={48} />
                 </div>
                 <h2 className="text-2xl font-semibold">4.1</h2>
               </div>
@@ -119,7 +121,6 @@ export default function Home() {
               pagination={true}
               mousewheel={true}
               keyboard={true}
-              
               // autoplay={{
               //   delay: 1500,
               //   disableOnInteraction: false,
@@ -157,7 +158,7 @@ export default function Home() {
                       </p>
                       <div className="flex justify-center items-center gap-3">
                         <GoogleSVG size={32} />
-                        <div className="flex "> 
+                        <div className="flex ">
                           <p className="text-xs font-semibold text-[#595959]">
                             Jenny Beattie
                           </p>
@@ -169,6 +170,35 @@ export default function Home() {
                 </SwiperSlide>
               ))}
             </Swiper>
+          </div>
+        </div>
+
+        {/* Social Section  */}
+        <div className="py-10 w-4/5 m-auto">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold mb-6 text-shadow">Reviews</h2>
+            <div className="flex justify-center">
+              <a href="https://www.facebook.com">
+                <FaFacebook size={32} color={"#1877f2"} />
+              </a>
+            </div>
+            <div className="grid grid-cols-2 my-10 gap-5">
+              <div>
+                <img
+                  src="https://img1.wsimg.com/isteam/ip/dcaf0790-2e31-40ed-a635-4e61984ff6cd/_DSC9800.jpg/:/rs=w:1160/qt=q:23"
+                  alt=""
+                />
+              </div>
+              <div className="text-start">
+                <div className="flex flex-col justify-end h-full p-10">
+                  <h3 className="text-3xl">Gift Vouchers</h3>
+                  <p>
+                    Send a gift voucher to friends and family or buy it now for
+                    your future use.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
